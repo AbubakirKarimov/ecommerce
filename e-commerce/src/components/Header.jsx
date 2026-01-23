@@ -1,16 +1,20 @@
-import { NavLink } from 'react-router';
+import { Link } from 'react-router';
 import './Header.css'
 
-export function Header() {
+export function Header({ cart }) {
+    let totalQuantity = 0;
+    cart.forEach((cartItem) => {
+        totalQuantity += cartItem.quantity;
+    })
     return (
         <div className="header">
             <div className="left-section">
-                <NavLink to="/" className="header-NavLink">
+                <Link to="/" className="header-Link">
                     <img className="logo"
                         src="images/logo-white.png" />
                     <img className="mobile-logo"
                         src="images/mobile-logo-white.png" />
-                </NavLink>
+                </Link>
             </div>
 
             <div className="middle-section">
@@ -22,14 +26,14 @@ export function Header() {
             </div>
 
             <div className="right-section">
-                <NavLink className="orders-NavLink header-NavLink" to="/orders">
+                <Link className="orders-Link header-Link" to="/orders">
 
                     <span className="orders-text">Orders</span>
-                </NavLink>
+                </Link>
 
-                <a className="cart-NavLink header-NavLink" href="checkout">
+                <a className="cart-Link header-Link" href="checkout">
                     <img className="cart-icon" src="images/icons/cart-icon.png" />
-                    <div className="cart-quantity">3</div>
+                    <div className="cart-quantity">{totalQuantity}</div>
                     <div className="cart-text">Cart</div>
                 </a>
             </div>

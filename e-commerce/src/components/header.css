@@ -25,7 +25,7 @@
   }
 }
 
-.header .header-NavLink {
+.header .header-Link {
   display: inline-block;
   padding: 6px 9.5px;
   border-radius: 2px;
@@ -34,7 +34,7 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-.header .header-NavLink:hover {
+.header .header-Link:hover {
   border: 1px solid white;
 }
 
@@ -103,7 +103,7 @@
   justify-content: end;
 }
 
-.header .header-NavLink {
+.header .header-Link {
   color: white;
 
   display: flex;
@@ -111,7 +111,7 @@
   padding-left: 13px;
   padding-right: 13px;
 }
-.header .header-NavLink.active{
+.header .header-Link.active{
   text-decoration: underline;
 }
 
