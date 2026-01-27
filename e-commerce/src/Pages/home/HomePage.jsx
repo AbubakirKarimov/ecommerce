@@ -15,7 +15,6 @@ export function HomePage({ cart, loadCart }) {
 */
 
     const [products, setProducts] = useState([]);
-    
 
     useEffect(() => {
         const getHomeData = async () => {
@@ -36,7 +35,7 @@ export function HomePage({ cart, loadCart }) {
             <Header cart={cart} />
 
             <div className="home-page">
-                <ProductsGrid products={products} loadCart={loadCart}/>
+                <ProductsGrid products={products} loadCart={loadCart} cart={cart}/>
             </div>
         </>
     );

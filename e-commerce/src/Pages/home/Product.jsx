@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { formatMoney } from "../../utils/money";
 
-export function Product({ product, loadCart }) {
+export function Product({ product, loadCart, cart }) {
     const [quantity, setQuantity] = useState(1);
+    const [show, setShow] = useState(false);
+
     const addToCart = async () => {
             await axios.post('/api/cart-items', {
                 productId: product.id,
                 quantity
             });
+            setShow(true);
+            setTimeout(() => {
+                setShow(false);
+            },2000);
             await loadCart();
         }
 
@@ -17,6 +23,7 @@ export function Product({ product, loadCart }) {
                         setQuantity(quantitySelected);
 
                     };
+            
 
     return (
         <>
@@ -59,7 +66,7 @@ export function Product({ product, loadCart }) {
 
                 <div className="product-spacer"></div>
 
-                <div className="added-to-cart">
+                <div className="added-to-cart" style={{opacity: show ? 1 : 0}}>
                     <img src="images/icons/checkmark.png" />
                     Added
                 </div>
