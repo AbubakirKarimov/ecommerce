@@ -1,5 +1,5 @@
 import { Link, useNavigate, useSearchParams } from 'react-router';
-import './Header.css'
+import './header.css'
 import { useState } from 'react';
 
 export function Header({ cart }) {
